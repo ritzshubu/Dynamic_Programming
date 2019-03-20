@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+int values[15],weight[15],n,m,v[15][15],w;
+int max(int a,int b)
+{
+ if(a>b)
+  return(a);
+ else
+  return(b);
+}
+int mfk(int i,int j)
+{
+	int value;
+	if(v[i][j]<0)
+	{
+		if(j<weight[i])
+			value=mfk(i-1,j);
+		else
+			value=max(mfk(i-1,j),values[i]+mfk(i-1,j-weight));
+		v[i][j]=value;
+	}
+	return v[i][j];
+}
+void main()
+{
+	int i,j,profit;
+	printf("\n Enter the number of item:\t");
+	scanf("%d",&n);
+	printf("\n Enter the values and weight\n");
+	for(i=1;i<=n;i++)
+	{
+		printf("\n Input Value of %d item :\t",i);
+		scanf("%d",&values[i]);
+		printf("\n Input Weight of %d item :\t",i);
+		scanf("%d",&weight[i]);
+	}
+	printf("\n Enter Capacity:\t");
+	scanf("%d",&w);
+	for(i=1;i<=n;i++)
+		for(j=1;j<=w;j++)
+			v[i][j]=-1;
+	profit=mfk(n,w);
+	
+}

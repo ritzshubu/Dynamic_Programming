@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<stdlib.h>
+void main()
+{
+	int i,j,k,n,r[10][10];
+	printf("\nEnter no. of vertices:\t");
+	      scanf("%d",&n);
+	printf("\nEnter Adjacency matrix\n");
+	  for(i=1;i<=n;i++)
+		      for(j=1;j<=n;j++)
+			        scanf("%d",&r[i][j]);
+	for(k=1;k<=n;k++)
+	{
+		for(i=1;i<=n;i++)
+		{
+			for(j=1;j<=n;j++)
+			{
+				r[i][j]=(r[i][j]||r[i][k]&&r[k][j]);
+			}
+		}
+	}
+	printf("\n=================MATRIX===================\n");
+		for(i=1;i<=n;i++){
+			for(j=1;j<=n;j++){
+				printf("\t%d",r[i][j]);
+			}
+			printf("\n");
+		}
+		printf("\n");
+}

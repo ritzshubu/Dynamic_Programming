@@ -40,5 +40,6 @@ void main()
 		for(j=1;j<=w;j++)
 			v[i][j]=-1;
 	profit=mfk(n,w);
+	printf("\n Maximum Profit=%d\n\n", profit);
 	
 }

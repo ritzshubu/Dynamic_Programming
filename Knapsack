@@ -16,7 +16,7 @@ int mfk(int i,int j)
 		if(j<weight[i])
 			value=mfk(i-1,j);
 		else
-			value=max(mfk(i-1,j),values[i]+mfk(i-1,j-weight));
+			value=max(mfk(i-1,j),values[i]+mfk(i-1,j-weight(i)));
 		v[i][j]=value;
 	}
 	return v[i][j];
